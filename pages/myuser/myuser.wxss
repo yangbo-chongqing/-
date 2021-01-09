@@ -1,0 +1,107 @@
+/* pages/myuser/myuser.wxss */
+page{
+  background: #ffffff;
+}
+.title{
+  position: fixed;
+  line-height: 45px;
+  left: 0;
+  z-index: 100;
+  padding-left: 40rpx;
+  font-size: 18px;
+  color: #2c2b2b;
+  font-weight: 600;
+}
+.my-user-page{
+  width: 100%;
+  background: #ffffff;
+  position: relative;
+  border-bottom: 1px solid #f5f5f5;
+}
+.my-user-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.my-user-page-img{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200rpx;
+}
+.login-btn{
+  width: 200rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  color: #ea7152;
+}
+.my-user-info{
+  position: relative;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 300rpx;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.my-user-pic{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.my-user-pic-img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.my-user-name{
+  text-align: center;
+  color: #333;
+  margin-left: 20rpx;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+}
+.my-list{
+  width: 100%;
+}
+.my-list-item{
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+  background: white;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.my-list-pic{
+  width: 80rpx;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+}
+.my-list-pic image{
+  width: 40rpx;
+  height: 40rpx;
+  flex-shrink: 0;
+}
+.my-list-text{
+  width: 100%;
+  color: #999;
+  font-size: 32rpx;
+  text-align: left;
+}
+.my-list-text button{
+  background: transparent;
+  padding: 0;
+  color: #999999;
+  text-align: left;
+  width: 100%;
+}
+.my-list-text button::after{
+  border: none;
+}

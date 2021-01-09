@@ -1,0 +1,28 @@
+<view class="container">
+	<!-- <nav-bar navbar-data='{{nvabarData}}'></nav-bar> -->
+	<!-- <view class='my-user-page' style="margin-top:{{height}}px"> -->
+	<view class="title" style="top:{{height}}px">寻声地图</view>
+	<view class='my-user-page' style="padding-top:{{height*2}}px">
+		<image class="my-user-page-img" mode="aspectFill" src="/images/icons/userbg.png"></image>
+		<!-- <button class="login-btn" wx:if="{{!hasUserInfo && canIUse}}" bindtap="getUserInfo"> 授权登录 </button> -->
+		<!-- <view class="my-user-info" wx:else> -->
+		<view class="my-user-info">
+			<view class="my-user-pic">
+				<open-data type="userAvatarUrl"></open-data>
+				<!-- <image class="my-user-pic-img" src="{{userInfo.avatarUrl}}"></image> -->
+			</view>
+			<view class="my-user-name">
+				<open-data type="userNickName" lang="zh_CN"></open-data>
+				<!-- {{userInfo.nickName}} -->
+			</view>
+		</view>
+	</view>
+	<view class="my-list">
+		<view class="my-list-item">
+			<view class="my-list-pic">
+				<image src="/images/icons/about.png"></image>
+			</view>
+			<view class="my-list-text"><button open-type="contact">帮助与客服</button></view>
+		</view>
+	</view>
+</view>

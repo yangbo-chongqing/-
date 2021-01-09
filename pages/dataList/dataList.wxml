@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container">
+	<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+	<view class='data-page' style="padding-top:{{height*2+20}}px">
+		<!-- <view class='data-page'> -->
+		<scroll-view class="scroll-view" wx:if="{{datalist.length>0}}" scroll-y="true" bindscrolltolower="getDataList">
+			<view class="scroll-view-item" wx:for="{{datalist}}" wx:key="id" bindtap="openJump" data-id="{{item.id}}">
+				<view class="scroll-view-media">
+					<image mode="aspectFill" src="{{item.image}}"></image>
+				</view>
+				<view class="find-tj-text">
+					<view class="scroll-view-title">{{item.name}}</view>
+					<view class="find-tj-midas">{{item.introduction}}</view>
+				</view>
+			</view>
+		</scroll-view>
+		<view wx:else class="no-data">暂无数据</view>
+	</view>
+</view>

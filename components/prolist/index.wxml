@@ -1,0 +1,15 @@
+<view class="find-page-tj">
+	<van-row>
+		<van-col span="24" wx:for="{{listObj}}" wx:key="id">
+			<view class="fint-tj-list" bindtap="openUrl" data-id="{{item.id}}">
+				<view class="find-tj-img">
+					<image class="find-tj-imgs" mode="aspectFill"  src="{{item.image}}"></image>
+				</view>
+				<view class="find-tj-text">
+				 <view class="find-tj-title">{{item.show_name}}</view>
+				 <view class="find-tj-midas">{{item.introduction}}</view>
+				</view>
+			</view>
+		</van-col>
+	</van-row>
+</view>

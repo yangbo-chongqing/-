@@ -1,0 +1,36 @@
+/* pages/findpage/findpage.wxss */
+.find-page{
+  width: 100%;
+  /* padding-top: 55px; */
+  background: #ea7152;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.find-search-btn{
+  color: white;
+}
+.find-type{
+  margin-top: 53px;
+  padding: 55rpx 10rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.find-type-list{
+  width: 100%;
+  text-align: center;
+}
+.find-type-imgs{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.find-type-text{
+  color: #333333;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+}

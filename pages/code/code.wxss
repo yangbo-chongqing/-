@@ -1,0 +1,82 @@
+/* pages/code/code.wxss */
+page{
+  padding: 0;
+  margin: 0;
+  }
+.content{
+  width: 100%;
+  height: 100%;
+  background-color:#fff;
+  padding-top: 50rpx;
+}
+.title{
+  width: 100%;
+  margin-top:20rpx;
+  text-align: center;
+}
+.content_iconfont{
+  padding-top: 300rpx;
+  text-align: center;
+  font-size: 60rpx;
+}
+.content_iconfont .icon-shouji,.content_iconfont .icon-jiantou_zuoyouqiehuan,.content_iconfont .icon-ico{
+  font-size: 100rpx;
+  color: #999;
+}
+.loginword{
+  padding-top: 60rpx;
+  text-align: center;
+  font-size: 50rpx;
+  font-weight: 600;
+}
+.login{
+  padding-top: 400rpx;
+  display: flex;
+  justify-content: center;
+}
+.login_content{
+  display: inline-block;
+  width: 300rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 8rpx;
+}
+.cancel{
+  display: flex;
+  justify-content: center;
+  padding-top: 80rpx;
+  color: #999;
+}
+
+
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1609137784636'); /* IE9 */
+  src: url('iconfont.eot?t=1609137784636#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,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') format('woff2'),
+  url('iconfont.woff?t=1609137784636') format('woff'),
+  url('iconfont.ttf?t=1609137784636') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1609137784636#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shouji:before {
+  content: "\e60e";
+}
+
+.icon-ico:before {
+  content: "\e646";
+}
+
+.icon-jiantou_zuoyouqiehuan:before {
+  content: "\e6eb";
+}

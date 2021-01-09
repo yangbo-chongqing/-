@@ -1,0 +1,149 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": true,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": false,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.13.1",
+  "appid": "wx6ee3647d35535276",
+  "projectname": "sydtxcx",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "详情页面",
+          "pathName": "pages/apprecinfo/apprecinfo",
+          "query": "id=4",
+          "scene": null
+        },
+        {
+          "name": "评论页面",
+          "pathName": "pages/pllist/pllist",
+          "query": "id=4",
+          "scene": null
+        },
+        {
+          "id": 2,
+          "name": "登录授权",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的",
+          "pathName": "pages/myuser/myuser",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "搜索",
+          "pathName": "pages/dataSearch/dataSearch",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "主页",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "店铺搜索",
+          "pathName": "pages/dataSearchcart/dataSearchcart",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 8,
+          "name": "野史列表",
+          "pathName": "pages/apprecinfoList/apprecinfoList",
+          "query": "id=4",
+          "scene": null
+        },
+        {
+          "name": "富文本",
+          "pathName": "pages/editor/editor",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "词条编辑",
+          "pathName": "pages/dataSearcartEdit/dataSearcartEdit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "二维码",
+          "pathName": "pages/editcode/editcode",
+          "query": "id=81",
+          "scene": null
+        },
+        {
+          "name": "用户日志",
+          "pathName": "pages/userlog/userlog",
+          "query": "muse_id=6&user_id=15",
+          "scene": null
+        },
+        {
+          "name": "二维码",
+          "pathName": "pages/code/code",
+          "query": "key= e12c66176c91bf1eff4c3fcaab13941b",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "发现",
+  "usingComponents": {
+    "nav-bar": "/components/navbar/index",
+    "pro-title": "/components/title/index",
+    "pro-swiper": "/components/proswiper/index",
+    "pro-list": "/components/prolist/index",
+    "van-search": "@vant/weapp/search/index"
+  }
+}

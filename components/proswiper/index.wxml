@@ -1,0 +1,26 @@
+<view class="find-swiper">
+	<swiper wx:if="{{type=='s0'}}" display-multiple-items="{{multipleItem}}">
+		<block wx:for="{{swiperObj}}" wx:key="id">
+			<swiper-item>
+				<view class="swiper-item" bindtap="openUrl" data-id="{{item.id}}">
+				  <view class="logo">
+						<image class="images-logo" mode="aspectFill" src="{{item.logo}}"></image>
+					</view>
+					<view class="swiper-text">{{item.muse_name}}</view>
+				</view>
+			</swiper-item>
+		</block>
+	</swiper>
+	<swiper wx:if="{{type=='s1'}}" display-multiple-items="{{multipleItem}}">
+		<block wx:for="{{swiperObj}}" wx:key="id">
+			<swiper-item>
+				<view class="swiper-item" bindtap="openToggleData" data-id="{{item.id}}">
+				  <view class="images">
+						<image class="images-img" mode="aspectFill" src="{{item.image}}"></image>
+					</view>
+					<view class="swiper-text">{{item.name}}</view>
+				</view>
+			</swiper-item>
+		</block>
+	</swiper>
+</view>

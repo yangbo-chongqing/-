@@ -1,0 +1,130 @@
+wxss page {
+  height: 100%;
+}
+
+.weui-cell-third {
+  min-height: 100%;
+  background-color: #f0f0f0;
+}
+
+.page__title {
+  padding: 30rpx;
+  background-color: #ffffff;
+  margin-bottom: 10rpx;
+}
+.page-user-body{
+  display: flex;
+}
+.page-user-body image{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.page-user-info{
+  display: flex;
+  margin-left: 30rpx;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.page__title>view {
+  font-size: 30rpx;
+  color: #2fb69d;
+  font-weight: 700;
+}
+
+.page__title>view:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30rpx;
+  color: #999999;
+}
+
+.weui-cell-list {
+  padding: 0rpx 30rpx 0 30rpx;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.weui-cell-title {
+  position: absolute;
+  top: 0rpx;
+  left: 10px;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.weui-cell-citem {
+  position: relative;
+}
+
+.weui-cell-time {
+  position: absolute;
+  left: -140rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.wecentBor {
+  padding-top: 40rpx;
+  background: #fff;
+}
+
+.weui-cell-line {
+  width: 100%;
+  margin-left: 60px;
+  padding-top: 55rpx;
+  box-sizing: border-box;
+  float: left;
+  border-left: 1px solid #2fb69d;
+  min-height: 100rpx;
+  margin-bottom: -10px;
+  position: relative;
+}
+
+.weui-cell-list:first-child .weui-cell-circle {
+  border: 1px solid #2fb69d;
+}
+
+.weui-cell-list .weui-cell-circle {
+  position: absolute;
+  left: -10px;
+  top: 0px;
+  background-color: #ffffff;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weui-cell-circle>view {
+  border: 1px solid #2fb69d;
+  border-radius: 5px;
+  width: 10px;
+  height: 10px;
+  background-color: #2fb69d;
+  border-color: 2fb69d;
+}
+
+.weui-cell-time {
+  float: left;
+  font-size: 14px;
+  padding-left: 15px;
+  width: 200rpx;
+}
+
+.weui-cell-event {
+  padding-left: 30rpx;
+  padding-bottom: 40rpx;
+  font-size: 32rpx;
+  color: #999;
+}
+
+.weui-cell-list:last-child .weui-cell-line {
+  border: 0;
+}

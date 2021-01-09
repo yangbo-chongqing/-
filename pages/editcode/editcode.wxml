@@ -1,0 +1,26 @@
+<!--pages/editcode/editcode.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+<view style="padding-top:{{height*2+20}}px">
+  <canvas canvas-id="myCanvas" class="code-box-canvas" style="width:560rpx;height:750rpx;background-color:#fff;"></canvas>
+  <view class="code-box">
+    <image class="code1" src="/images/icons/code1.png"></image>
+    <image class="code2" src="/images/icons/code2.png"></image>
+    <view class="code-image">
+      <image src="{{codeData.code_url}}"></image>
+    </view>
+    <view class="canvas-input">
+      <van-cell-group>
+        <van-field value="{{ message }}" bind:blur="setMessage" type="textarea" placeholder="请输入" autosize maxlength="50"
+          border="{{ false }}" />
+      </van-cell-group>
+    </view>
+  </view>
+  <view class="code-btn">
+    <view class="code-item" bindtap="canvasImgFun">
+      <view class="code-icon roate">
+        <van-icon name="back-top" />
+      </view>
+      <view class="code-text">保存二维码</view>
+    </view>
+  </view>
+</view>

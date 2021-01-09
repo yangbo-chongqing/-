@@ -1,0 +1,36 @@
+<!--pages/findpage/findpage.wxml-->
+<view wx:if="{{homeInfo.muse_name}}">
+	<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+	<view class="app-view-imgs">
+		<image mode="widthFix" src="{{homeInfo.head}}"></image>
+	</view>
+	<view class="app-view-head">
+		<view class="app-view-head-body">
+			<view class="app-view-head-logo">
+				<image mode="widthFix" src="{{homeInfo.logo}}"></image>
+			</view>
+			<view class="app-view-head-info">
+				<view class="app-view-head-title">{{homeInfo.muse_name}}</view>
+				<view class="app-view-head-muic" wx:if='{{homeInfo.voice_url}}'>
+					<view class="app-audio-box" bindtap="playAudio">
+						<van-icon name="play-circle-o" wx:if="{{playFlag}}" size="20" />
+						<van-icon name="pause-circle-o" wx:else size="20" />
+						语言简介
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="app-video-box">
+		<view class="com-video" wx:if="{{videoObj.videoUrl}}">
+			<view class="video-play-btn" wx:if="{{videoFlag}}" bindtap="playVideo"><van-icon name="play-circle-o" size="80" /></view>
+			<video id="myVideo" class="my-video" autoplay="{{true}}" bindtap="playVideo" src="{{videoObj.videoUrl}}" bindplay="videoPause" controls="{{false}}" loop="{{true}}"></video>
+		</view>
+	</view>
+	<view class="app-data-box">
+		<view wx:for="{{homeData}}" wx:key="id">
+			<pro-title title-obj="{{item.titles}}"></pro-title>
+			<pro-list list-obj="{{item.list}}"></pro-list>
+		</view>
+	</view>
+</view>

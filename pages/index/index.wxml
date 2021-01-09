@@ -1,0 +1,97 @@
+<!--index.wxml-->
+<view class="container">
+	<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+	<view class="home-page-swiper" style="padding-top:{{height*2}}px">
+		<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" indicator-color="#f5f5f5"
+			indicator-active-color="#5287fd" interval="{{interval}}" duration="{{duration}}">
+			<block wx:for="{{homeData.adv}}" wx:key="id">
+				<swiper-item>
+					<view class="swiper-item " bindtap="jumpLink" data-link="{{item.link}}">
+						<image mode="aspectFill" src="{{item.image}}"></image>
+						<view class="home-page-swiper-name">{{item.content}}</view>
+					</view>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<view class='home-page'>
+
+		<view wx:if="{{homeData.muse_list.length>0}}">
+			<view class="find-page-title">
+				<view class="find-page-title-text">
+					每日发现
+				</view>
+				<view class="find-page-title-sel">
+					<view class="find-page-title-more" bindtap="openJump">
+						<view>更多</view>
+						<van-icon name="arrow" />
+					</view>
+				</view>
+			</view>
+			<pro-swiper swiper-obj="{{homeData.muse_list}}"></pro-swiper>
+		</view>
+		<view wx:if="{{homeData.brand_adv.length>0}}">
+			<view class="find-page-title">
+				<view class="find-page-title-text">
+					推荐品牌
+				</view>
+				<!-- <view class="find-page-title-sel">
+					<view class="find-page-title-more" bindtap="openJump">
+						<view>更多</view>
+						<van-icon name="arrow" />
+					</view>
+				</view> -->
+			</view>
+			<view class="find-page-tj-body" >
+				<view class="find-page-tj-body-item" bindtap="jumpLink" data-link="{{homeData.brand_adv[0].link}}">
+					<image mode="aspectFill"
+						src="{{homeData.brand_adv[0].image}}">
+					</image>
+				</view>
+				<view class="find-page-tj-body-item">
+					<view class="find-page-tj-body-item1" bindtap="jumpLink" data-link="{{homeData.brand_adv[1].link}}">
+						<image mode="aspectFill"
+						src="{{homeData.brand_adv[1].image}}">
+						</image>
+					</view>
+					<view class="find-page-tj-body-item1">
+						<view class="find-page-tj-body-item2"  bindtap="jumpLink" data-link="{{homeData.brand_adv[2].link}}">
+							<image mode="aspectFill"
+							src="{{homeData.brand_adv[2].image}}">
+							</image>
+						</view>
+						<view class="find-page-tj-body-item2" bindtap="jumpLink" data-link="{{homeData.brand_adv[3].link}}">
+							<image mode="aspectFill"
+							src="{{homeData.brand_adv[3].image}}">
+							</image>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view id='index-nav'>
+			<!-- <view class="scroll-box {{fixedNav?'fixedNav':''}}" style="{{fixedNav?'padding-top:'+(height*2+20)+'px':''}}"> -->
+			<view class="scroll-box">
+				<scroll-view class="scroll-x" scroll-x="true" scroll-y="false" show-scrollbar="false">
+					<view class="scroll-tab">
+						<view class="scroll-page-title-text {{tabIndex==index?'active':''}}"  wx:for="{{homeData.cat_list}}" wx:key="id" bindtap="toggleTab" data-index='{{index}}'>
+							{{item.cat_name}}
+						</view>
+					</view>
+				</scroll-view>
+			</view>
+			<view class="home-you-sel" wx:for="{{homeData.cat_list}}" wx:key="id" wx:if="{{tabIndex==index}}">
+				<view class="home-you-sel-item" wx:for="{{item.muse_list}}" wx:key="id" bindtap="openUrl"
+					data-id="{{item.id}}">
+					<view class="home-you-img">
+						<image mode="widthFix" src="{{item.logo}}"></image>
+					</view>
+					<view class="home-you-body">
+						<view class="home-you-title">{{item.muse_name}}</view>
+						<view class="home-you-text" wx:if="{{item.slogan}}">{{item.slogan}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

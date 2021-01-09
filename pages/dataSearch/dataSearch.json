@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "赏物列表",
+  "usingComponents": {
+    "nav-bar": "/components/navbar/index",
+    "van-search": "@vant/weapp/search/index"
+  }
+}

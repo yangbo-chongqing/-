@@ -1,0 +1,24 @@
+<!--pages/code/code.wxml-->
+
+<view class="content">
+  <view class="title">
+    <text>寻声地图</text>
+  </view>
+  <view class="content_iconfont">
+    <text class="iconfont icon-shouji"></text>
+    <text class="iconfont icon-jiantou_zuoyouqiehuan"></text>
+    <text class="iconfont icon-ico"></text>
+  </view>
+  <view class="loginword">
+    <text>{{text}}</text>
+  </view>
+  <view class="login">
+    <text class="login_content" bindtap="login" data-index="1" wx:if="{{showView}}">{{login_content}}</text>
+    <!-- <text class="login_content" bindtap="login" data-index="1" wx:if="{{showView}}">{{login_content}}</text> -->
+    <button class="login_content" open-type="getPhoneNumber" data-index="1" wx:if="{{!showView}}" bindgetphonenumber="getPhoneNumber">{{authorized_login}}</button>
+  </view>
+  <view class="cancel">
+    <text class="cancel_content" bindtap="login" data-index="0">{{cancel_content}}</text>
+  </view>
+  <van-toast id="van-toast" />
+</view>

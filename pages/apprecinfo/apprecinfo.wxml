@@ -1,0 +1,292 @@
+<view class="container" wx:if="{{relicsInfo.info}}">
+	<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+	<view class="app-video-box" wx:if="{{videoObj.videoUrl}}">
+		<!-- <view class="app-video-box" wx:if="{{videoObj.videoUrl}}"> -->
+		<view class="com-video">
+			<view class="v-image-audio" bindtap="playAudio" wx:if="{{audioObj.src}}">
+				<image src="/images/icons/viuplay1.png" wx:if="{{playFlag}}"></image>
+				<image src="/images/icons/viuplay2.png" wx:else></image>
+				<audio src="{{audioObj.src}}" id="myaudiof"  bindended="myaudiofend"></audio>
+			</view>
+			<view class="video-play-btn" wx:if="{{videoFlag}}" bindtap="playVideo">
+				<van-icon name="play-circle-o" size="80" />
+			</view>
+			<video id="myVideo" class="my-video" autoplay="{{true}}" bindtap="playVideo" bindpause="myvideopause" src="{{videoObj.videoUrl}}"
+			bindplay="videoPause" controls="{{false}}" loop="{{true}}"></video>
+			<!-- <view class="app-video-text" wx:if="{{videoFlag}}">
+				<view class="app-video-title">{{videoObj.videoTitle}}</view>
+				<view class="app-video-textj" wx:if="{{videoObj.videoText}}">{{videoObj.videoText}}</view>
+				<view class="app-video-textj" wx:if="{{videoObj.videogk}}"><text>{{videoObj.videogk}}</text><text>{{videoObj.time}}</text></view>
+			</view> -->
+		</view>
+	</view>
+	<view class="v-image-box" wx:else>
+		<image class="v-image" mode="widthFix" src="{{relicsInfo.info.image}}"></image>
+		<view class="v-image-audio" bindtap="playAudio" wx:if="{{audioObj.src}}">
+			<image src="/images/icons/viuplay1.png" wx:if="{{playFlag}}"></image>
+			<image src="/images/icons/viuplay2.png" wx:else></image>
+			<audio src="{{audioObj.src}}" id="myaudiof"></audio>
+		</view>
+	</view>
+	<view class="app-info-box">
+		<view class="app-info-title">{{relicsInfo.info.name}}
+			<view class="app-info-link" wx:if='{{relicsInfo.info.is_like == 0}}' bindtap="linkFn">
+				<van-icon size="25" name="good-job-o" />{{relicsInfo.info.likes>0?relicsInfo.info.likes:''}}</view>
+			<view class="app-info-link active" wx:else bindtap="linkFn">
+				<van-icon size="25" name="good-job-o" />{{relicsInfo.info.likes}}</view>
+		</view>
+		<text class="app-info-text" wx:if="{{relicsInfo.info.introduction}}">
+			{{relicsInfo.info.introduction}}
+		</text>
+		<view class="app-info-tips" wx:for="{{relicsInfo.info.property}}" wx:key='index'>
+			<view class="app-info-tips-item">
+				<view class="app-info-tips-item-lab">{{item.title}}</view>
+				<view class="app-info-tips-item-title">{{item.content}}</view>
+			</view>
+		</view>
+	</view>
+	<import src="../../utils/wxParse/wxParse.wxml" />
+	<view class="app-info-htmlCont" wx:if="{{relicsInfo.info.content}}">
+		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+	</view>
+	<view class="doommview">
+		<block wx:for="{{doommData}}" wx:key="index">
+			<text wx:if="{{item.display}}" class="aon"
+				style="animation: first {{item.time}}s linear forwards;top:{{item.top}}%;color:{{item.color}};">
+				{{item.text}}
+			</text>
+		</block>
+	</view>
+	<view class="liner" wx:if="{{relicsInfo.info.related_list.length>0}}"></view>
+	<view class="app-info-jump" wx:if="{{relicsInfo.info.related_list.length>0}}">
+		<view class="app-info-title1">
+			<view class="app-info-title-img">
+				<view class="app-info-title-left">
+					<image src="/images/icons/info-jump.png"></image>
+					<view class="app-info-titles">连接相关</view>
+					<view class="app-info-texts">探索万物之间的联系</view>
+				</view>
+			</view>
+		</view>
+		<view class="app-info-jump-list">
+			<pro-swiper swiper-obj="{{relicsInfo.info.related_list}}" type="s1"></pro-swiper>
+		</view>
+	</view>
+	<view class="liner" wx:if="{{relicsInfo.info.history_list.length>0}}"></view>
+	<view class="app-info-jump" wx:if="{{relicsInfo.info.history_list.length>0}}">
+		<view class="app-info-title1">
+			<view class="app-info-title-img">
+				<view class="app-info-title-left">
+					<image src="/images/icons/info-ta.png"></image>
+					<view class="app-info-titles">TA说</view>
+					<view class="app-info-texts">发现背后的故事</view>
+				</view>
+			</view>
+			<view class="app-info-title-jump" bindtap="jumpList" wx:if="{{relicsInfo.info.history_count>3}}"
+				data-id="{{relicsInfo.info.id}}">全部
+				<van-icon name="arrow" />
+			</view>
+		</view>
+		<view class="app-info-ta-list">
+			<view class="app-info-ta-item" wx:for="{{relicsInfo.info.history_list}}" wx:key="index" bindtap="openToggleData"
+				data-id="{{item.id}}">
+				<view class="app-info-ta-title">
+					<view class="app-info-ta-title-left">
+						<view class="app-info-jump-item-text">{{item.name}}</view>
+					</view>
+					<view class="app-view-head-muic" wx:if="{{item.voice_url}}">
+						<view class="app-audio-box" catchtap="playAudioList" data-index="{{index}}">
+							<van-icon name="play-circle-o" wx:if="{{item.playFlag}}" size="20" />
+							<van-icon name="pause-circle-o" wx:else size="20" />
+							语言简介
+						</view>
+						<audio src="{{item.voice_url}}" id="myAudio{{index}}" loop></audio>
+					</view>
+				</view>
+				<view class="app-info-ta-body">
+					<view class="app-info-ta-body-info">
+						<view class="app-info-ta-body-text">{{item.introduction}}</view>
+						<view class="app-info-ta-body-tips">
+							<view>{{item.create_time}}</view>
+						</view>
+					</view>
+					<view class="app-info-ta-body-image">
+						<image mode="aspectFill" src="{{item.image}}"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="liner"></view>
+	<view class="app-info-title1">
+		<view class="app-info-title-img">
+			<view class="app-info-title-left">
+				<image src="/images/icons/info-pl.png"></image>
+				<view class="app-info-titles">评论</view>
+			</view>
+		</view>
+	</view>
+	<view class="pl-body">
+		<scroll-view class="scroll-pl-box" scroll-y="true" scroll-top="{{scrollTop}}" bindscrolltolower="RelicsCommentList">
+			<view class="pl-cont-body">
+				<view class="app-pl-list">
+					<view class="app-pl-list-item" wx:for="{{commentList}}" wx:key="index" wx:for-index="index">
+						<view class="app-pl-list-item-media">
+							<image mode="aspectFill" src="{{item.user_info.avatar}}"></image>
+						</view>
+						<view class="app-pl-list-item-body">
+							<view class="app-pl-list-item-info">
+								<view class="app-pl-list-item-user">
+									<text class="app-pl-user">{{item.user_info.nickname}}</text><text wx:if="{{item.official==1}}"
+										class="app-pl-tip">官方</text>
+								</view>
+							</view>
+							<view class="app-pl-list-item-cont">
+								<view wx:if="{{item.comment}}">{{item.comment}}</view>
+								<view wx:if="{{item.image}}">
+									<view class="pl-images-box">
+										<image class="pl-images" wx:for="{{item.image}}" wx:for-item="imgItem" wx:key="index"
+											wx:for-index="imgIndex" bindtap="previewMedia" mode="aspectFill" src="{{imgItem}}"
+											data-index="{{imgIndex}}" data-imgs="{{item.image}}"></image>
+									</view>
+								</view>
+								<view wx:if="{{item.voice}}">
+									<view class="app-pl-voice" bindtap="plplayAudio" data-voice="{{item.voice}}">
+										<image src="/images/icons/playly-icon.png" mode="aspectFill"></image>
+										<text>{{item.duration}}</text>
+									</view>
+								</view>
+							</view>
+							<view class="app-pl-list-item-item">
+								<view class="pl-time">{{item.create_time}}</view>
+								<view class="pl-tips">
+									<view class="app-pl-item-link" style="color:{{item.is_like==0?'':'#5287fd'}}" bindtap="CommentLike"
+										data-commentid='{{item.id}}' data-index="{{index}}">
+										<van-icon name="good-job-o" />
+										{{item.likes>0?item.likes:''}}
+									</view>
+									<view class="pl-hf" bindtap="hfSetFocus" data-reply_id="{{item.id}}" data-index="{{index}}"
+										data-username="{{item.user_info.nickname}}">
+										<van-icon name="chat-o" />
+									</view>
+								</view>
+							</view>
+							<view class="pl-hf-body" wx:if="{{item.list.length>0}}">
+								<view class="app-pl-hf-item" wx:for="{{item.list}}" wx:key="index" wx:for-item="itemlist"
+									wx:for-index="itemIndex">
+									<view class="app-pl-hf-item-media">
+										<image mode="aspectFill" src="{{itemlist.user_info.avatar}}"></image>
+									</view>
+									<view class="app-pl-hf-item-body">
+										<view class="app-pl-hf-item-info">
+											<view class="app-pl-list-item-user">
+												<text class="app-pl-user">{{itemlist.user_info.nickname}}</text>回复<text
+													class="app-pl-user">{{itemlist.reply_user_info.nickname}}</text>
+											</view>
+										</view>
+										<view class="app-pl-list-item-cont">
+											<view class="app-pl-list-item-cont">
+												<view wx:if="{{itemlist.comment}}">{{itemlist.comment}}</view>
+												<view wx:if="{{itemlist.image}}">
+													<view class="pl-images-box">
+														<image class="pl-images" wx:for="{{itemlist.image}}" wx:for-item="imgList" wx:key="index"
+															wx:for-index="imgListIndex" bindtap="previewMedia" mode="aspectFill" src="{{imgList}}"
+															data-index="{{imgListIndex}}" data-imgs="{{itemlist.image}}"></image>
+													</view>
+												</view>
+												<view wx:if="{{itemlist.voice}}">
+													<view class="app-pl-voice" bindtap="plplayAudio" data-voice="{{itemlist.voice}}">
+														<image src="/images/icons/playly-icon.png" mode="aspectFill"></image>
+														<text>{{item.duration}}</text>
+													</view>
+												</view>
+											</view>
+										</view>
+										<view class="app-pl-list-item-item1">
+											<view class="pl-time">{{itemlist.create_time}}</view>
+											<view class="pl-tips">
+												<view class="app-pl-item-link" style="color:{{itemlist.is_like==0?'':'#ea7152'}}"
+													bindtap="CommentLike" data-commentid='{{itemlist.id}}' data-index="{{index}}"
+													data-itemindex="{{itemIndex}}">
+													<van-icon name="good-job-o" />
+													{{itemlist.likes>0?itemlist.likes:''}}
+												</view>
+												<view class="pl-hf" bindtap="hfSetFocus" data-reply_id="{{itemlist.id}}" data-index="{{index}}"
+													data-username="{{itemlist.user_info.nickname}}">
+													<van-icon name="chat-o" />
+												</view>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="no-data" wx:if="{{!is_getListFlag}}">没有更多了~</view>
+		</scroll-view>
+		<view class="pl-input-body"  style="bottom:{{inputHeight}}px">
+			<view class="pl-send-text"><input adjust-position="{{false}}" class="weui-input" value="{{comment}}" confirm-type="send" focus="{{autoFocus}}"
+					bindconfirm="RelicsComment" bindfocus="isauthor" bindblur="blurInput" placeholder="{{placeholder}}" /></view>
+			<view class="pl-send-img" bindtap="uploadImg">
+				<image mode="aspectFill" src="/images/icons/img-icon.png"></image>
+			</view>
+			<view class="pl-send-ly" bindtap="showPopup">
+				<image mode="aspectFill" src="/images/icons/ly-icon.png"></image>
+			</view>
+		</view>
+		<van-popup round position="bottom" custom-style="height:400rpx" show="{{ plShow }}" catchtouchmove='true'
+			bind:close="onClose">
+			<view class="ly-body">
+				<view class="ly-title" wx:if="{{lyFlag==0}}">
+					点击录音,最长5分钟请保持屏幕常亮
+				</view>
+				<view class="ly-title" wx:if="{{lyFlag==1}}">
+					<image src="/images/icons/ly.gif"></image>
+					<text>{{timeNumber}}</text>
+					<image src="/images/icons/ly.gif"></image>
+				</view>
+				<view class="ly-icon-btn">
+					<image wx:if="{{lyFlag==0}}" bindtap="startLy" src="/images/icons/ly-state-icon.png"></image>
+					<image wx:if="{{lyFlag==1}}" bindtap="endLy" src="/images/icons/ly-end-icon.png"></image>
+				</view>
+			</view>
+		</van-popup>
+	</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- <view style="margin-top:{{height}}rpx">
+		<import src="../../utils/wxParse/wxParse.wxml" />
+		<view class="index">
+			<view class="news">
+				<view class="news-item line">
+					<view class="news-details-content wxParse">
+						<template is="wxParse" data="{{wxParseData:content.nodes}}" />
+					</view>
+				</view>
+			</view>
+		</view>
+	</view> -->
+</view>

@@ -1,0 +1,106 @@
+/* 顶部要固定定位   标题要居中   自定义按钮和标题要和右边微信原生的胶囊上下对齐 */
+.nav-wrap {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  color: #000;
+  z-index: 9999999;
+  height: 46px;
+}
+.logoimg{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right:20rpx;
+}
+.back-body {
+  display: flex;
+}
+
+.nav-bgimg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* 标题要居中 */
+.nav-title {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 18px;
+  color: #2c2b2b;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-title-text{
+  max-width: 300rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 46px;
+}
+.nav-icon {
+  display: flex;
+  align-items: center;
+  height: 46px;
+}
+
+.nav-capsule {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  width: 70px;
+  justify-content: space-between;
+  height: 100%;
+
+}
+
+.back-homes {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+.back-homes1{
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+.liner {
+  margin: 0 20rpx;
+  width: 1px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-v-line {
+  width: 1px;
+  height: 32rpx;
+}
+
+.back-pre,
+.back-home {
+  width: 32rpx;
+  height: 36rpx;
+  margin-top: 4rpx;
+  padding: 10rpx;
+  font-weight: bold;
+}
+
+.nav-capsule .back-home {
+  width: 36rpx;
+  height: 40rpx;
+  margin-top: 3rpx;
+}

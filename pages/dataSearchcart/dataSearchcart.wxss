@@ -1,0 +1,72 @@
+/* pages/dataList/dataList.wxss */
+.data-page{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background: white;
+  /* padding-top: 20px; */
+}
+.scroll-box{
+  width: 100%;
+  position: relative;
+}
+.scroll-view{
+  width: 100%;
+  height: 85vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  background: white;
+}
+.home-you-sel{
+  width: 95%;
+  margin: auto;
+  margin-top: 20rpx;
+  background: white;
+}
+.home-you-sel-item{
+  display: flex;
+  margin-bottom: 20rpx;
+  box-shadow: 0px 0px 10px #e9e9e9;
+  border-radius: 10px;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.home-you-img{
+  width: 167rpx;
+  height: 167rpx;
+  padding: 10rpx;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.home-you-img image{
+  width: 147rpx;
+  height: 147rpx;
+}
+.home-you-body{
+  width: 460rpx;
+  margin-left: 20rpx;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+}
+.home-you-title{
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+.home-you-text{
+  color: #999;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+.no-data{
+  width: 100%;
+  padding: 100rpx 0;
+  text-align: center;
+  color: #999;
+  font-size: 40rpx;
+}

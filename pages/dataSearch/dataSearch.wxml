@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+	<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+	<view class='data-page' style="padding-top:{{height*2+20}}px">
+		<van-search value="{{ keyword }}" shape="round" background="#ffffff" placeholder="输入你想了解的..." use-action-slot bind:change="onChange" bind:search="onSearch">
+		</van-search>
+	</view>
+	<!-- <view class='data-page'> -->
+	<scroll-view class="scroll-view" wx:if="{{datalist.list.length>0}}" scroll-y="true">
+		<view class="scroll-view-item" wx:for="{{datalist.list}}" wx:key="index" bindtap="openJump" data-id="{{item.id}}">
+			<view class="scroll-view-media">
+				<image mode="aspectFill" src="{{item.image}}"></image>
+			</view>
+			<view class="find-tj-text">
+					<view class="scroll-view-title">{{item.name}}</view>
+					<view class="find-tj-midas">{{item.introduction}}</view>
+				</view>
+		</view>
+	</scroll-view>
+	<view wx:if="{{datalist.list.length == 0}}" class="no-data">暂无数据</view>
+</view>

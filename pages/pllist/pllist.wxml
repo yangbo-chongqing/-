@@ -1,0 +1,117 @@
+<view class="pl-body">
+	<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+	<!-- <view class="pl-title-text">全部156条评论</view> -->
+	<scroll-view class="scroll-pl-box" style="padding-top:{{height*2 + 22}}px" scroll-y="true" scroll-top="{{scrollTop}}" bindscrolltolower="RelicsCommentList">
+		<view class="pl-cont-body">
+			<view class="app-pl-list">
+				<view class="app-pl-list-item" wx:for="{{commentList}}" wx:key="*this" wx:for-index="index">
+					<view class="app-pl-list-item-media">
+						<image mode="aspectFill" src="{{item.user_info.avatar}}"></image>
+					</view>
+					<view class="app-pl-list-item-body">
+						<view class="app-pl-list-item-info">
+							<view class="app-pl-list-item-user">
+								<text class="app-pl-user">{{item.user_info.nickname}}</text><text wx:if="{{item.official==1}}" class="app-pl-tip">官方</text>
+							</view>
+						</view>
+						<view class="app-pl-list-item-cont">
+							<view wx:if="{{item.comment}}">{{item.comment}}</view>
+							<view wx:if="{{item.image}}">
+								<view class="pl-images-box">
+									<image class="pl-images" wx:for="{{item.image}}" wx:for-item="imgItem" wx:key="*this" wx:for-index="imgIndex" bindtap="previewMedia" mode="aspectFill" src="{{imgItem}}" data-index="{{imgIndex}}" data-imgs="{{item.image}}"></image>
+								</view>
+							</view>
+							<view wx:if="{{item.voice}}">
+								<view class="app-pl-voice" bindtap="playAudio" data-voice="{{item.voice}}">
+									<image src="/images/icons/playly-icon.png" mode="aspectFill"></image>
+									<text>{{item.duration}}</text>
+								</view>
+							</view>
+						</view>
+						<view class="app-pl-list-item-item">
+							<view class="pl-time">{{item.create_time}}</view>
+							<view class="pl-tips">
+								<view class="app-pl-item-link" style="color:{{item.is_like==0?'':'#ea7152'}}" bindtap="CommentLike" data-commentid='{{item.id}}' data-index="{{index}}">
+									{{item.likes}}
+									<van-icon name="good-job-o" />
+								</view>
+								<view class="pl-hf" bindtap="hfSetFocus" data-reply_id="{{item.id}}" data-index="{{index}}" data-username="{{item.user_info.nickname}}">
+									<van-icon name="chat-o" />
+								</view>
+							</view>
+						</view>
+						<view class="pl-hf-body" wx:if="{{item.list.length>0}}">
+							<view class="app-pl-hf-item" wx:for="{{item.list}}" wx:key="*this" wx:for-item="itemlist" wx:for-index="itemIndex">
+								<view class="app-pl-hf-item-media">
+									<image mode="aspectFill" src="{{itemlist.user_info.avatar}}"></image>
+								</view>
+								<view class="app-pl-hf-item-body">
+									<view class="app-pl-hf-item-info">
+										<view class="app-pl-list-item-user">
+											<text class="app-pl-user">{{itemlist.user_info.nickname}}</text>回复<text class="app-pl-user">{{itemlist.reply_user_info.nickname}}</text>
+										</view>
+									</view>
+									<view class="app-pl-list-item-cont">
+										<view class="app-pl-list-item-cont">
+											<view wx:if="{{itemlist.comment}}">{{itemlist.comment}}</view>
+											<view wx:if="{{itemlist.image}}">
+												<view class="pl-images-box">
+													<image class="pl-images" wx:for="{{itemlist.image}}" wx:for-item="imgList" wx:key="*this" wx:for-index="imgListIndex" bindtap="previewMedia" mode="aspectFill" src="{{imgList}}" data-index="{{imgListIndex}}" data-imgs="{{itemlist.image}}"></image>
+												</view>
+											</view>
+											<view wx:if="{{itemlist.voice}}">
+												<view class="app-pl-voice" bindtap="playAudio" data-voice="{{itemlist.voice}}">
+													<image src="/images/icons/playly-icon.png" mode="aspectFill"></image>
+													<text>{{item.duration}}</text>
+												</view>
+											</view>
+										</view>
+									</view>
+									<view class="app-pl-list-item-item1">
+										<view class="pl-time">{{itemlist.create_time}}</view>
+										<view class="pl-tips">
+											<view class="app-pl-item-link" style="color:{{itemlist.is_like==0?'':'#ea7152'}}" bindtap="CommentLike" data-commentid='{{itemlist.id}}' data-index="{{index}}" data-itemindex="{{itemIndex}}">
+												{{itemlist.likes}}
+												<van-icon name="good-job-o" />
+											</view>
+											<view class="pl-hf" bindtap="hfSetFocus" data-reply_id="{{itemlist.id}}" data-index="{{index}}" data-username="{{itemlist.user_info.nickname}}">
+												<van-icon name="chat-o" />
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="no-data" wx:if="{{!is_getListFlag}}">没有更多了~</view>
+	</scroll-view>
+	<view class="pl-input-body">
+		
+		<view class="pl-send-text"><input class="weui-input" value="{{comment}}" confirm-type="send" focus="{{autoFocus}}" bindconfirm="RelicsComment" bindblur="blurInput" placeholder="{{placeholder}}" /></view>
+		<view class="pl-send-img" bindtap="uploadImg">
+			<image mode="aspectFill" src="/images/icons/img-icon.png"></image>
+		</view>
+		<view class="pl-send-ly" bindtap="showPopup">
+			<image mode="aspectFill" src="/images/icons/ly-icon.png"></image>
+		</view>
+	</view>
+	<van-popup round position="bottom" custom-style="height:400rpx" show="{{ plShow }}" catchtouchmove='true' bind:close="onClose">
+		<view class="ly-body">
+			<view class="ly-title" wx:if="{{lyFlag==0}}">
+				点击录音,最长5分钟请保持屏幕常亮
+			</view>
+			<view class="ly-title" wx:if="{{lyFlag==1}}">
+				<image src="/images/icons/ly.gif"></image>
+				<text>{{timeNumber}}</text>
+				<image src="/images/icons/ly.gif"></image>
+			</view>
+			<view class="ly-icon-btn">
+				<image wx:if="{{lyFlag==0}}" bindtap="startLy" src="/images/icons/ly-state-icon.png"></image>
+				<image wx:if="{{lyFlag==1}}" bindtap="endLy" src="/images/icons/ly-end-icon.png"></image>
+			</view>
+		</view>
+	</van-popup>
+</view>

@@ -1,0 +1,27 @@
+<view class='nav-wrap' style='padding-top: {{height}}px;background:{{navbarData.bgColor}}'>
+	<!-- 导航栏 中间的标题 -->
+	<view class='nav-title' wx:if="{{navbarData.title}}" style='padding-top: {{height}}px;color:{{navbarData.fontColor}}'>
+		<image class="logoimg" wx:if="{{navbarData.logo}}" src="{{navbarData.logo}}"></image>
+		<view class="nav-title-text">{{navbarData.title}}</view>
+	</view>
+	<view class="nav-icon">
+		<!-- 导航栏  左上角的返回按钮 和home按钮 -->
+		<!-- 其中wx:if='{{navbarData.showCapsule}}' 是控制左上角按钮的显示隐藏，首页不显示 -->
+		<view class='nav-capsule'  wx:if='{{navbarData.showCapsule}}'>
+			<!-- 左上角的返回按钮，wx:if='{{!share}}'空制返回按钮显示 -->
+			<!-- 从分享进入小程序时 返回上一级按钮不应该存在 -->
+			<view wx:if="{{navbarData.isHomeFlag}}" class="back-homes1">
+				<van-icon bind:click="_dataSearchcart" name="search" color="#000000" wx:if="{{navbarData.isSearch}}" size="20px" />
+			</view>
+			<view wx:else class="back-homes">
+				<view class="back-body" wx:if="{{!isHome}}">
+					<van-icon bind:click="_navback" color="#000000" size="20px" name="arrow-left" />
+					<view class="liner" wx:if="{{navbarData.isSearch || (isHome && navbarData.isSearch)}}"></view>
+				</view>
+				<van-icon bind:click="_backhome" name="wap-home-o" color="#000000" wx:if="{{isHome}}" size="20px" />
+				<view class="liner" wx:if="{{isHome && navbarData.isSearch}}"></view>
+				<van-icon bind:click="_dataSearch" name="search" color="#000000" wx:if="{{navbarData.isSearch}}" size="20px" />
+			</view>
+		</view>
+	</view>
+</view>

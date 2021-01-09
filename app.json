@@ -1,0 +1,52 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/appreciation/appreciation",
+    "pages/dataList/dataList",
+    "pages/apprecinfoList/apprecinfoList",
+    "pages/dataSearch/dataSearch",
+    "pages/dataSearchcart/dataSearchcart",
+    "pages/apprecinfo/apprecinfo",
+    "pages/myuser/myuser",
+    "pages/findpage/findpage",
+    "pages/pllist/pllist",
+    "pages/login/login",
+    "pages/dataSearcartEdit/dataSearcartEdit",
+    "pages/editor/editor",
+    "pages/details/details",
+    "pages/editcode/editcode",
+    "pages/userlog/userlog",
+    "pages/code/code"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#ea7152",
+    "navigationBarTextStyle": "black",
+    "navigationStyle":"custom"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#5287fd",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/tabbar/icon1.png",
+      "selectedIconPath": "images/tabbar/select-icon1.png"
+    },
+    {
+      "pagePath": "pages/myuser/myuser",
+      "text": "我的",
+      "iconPath": "images/tabbar/icon3.png",
+      "selectedIconPath": "images/tabbar/select-icon3.png"
+    }]
+  },
+  "permission": {
+      "scope.userLocation": {
+          "desc": "你的位置信息将用于小程序位置接口的效果展示"
+      }
+  },
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

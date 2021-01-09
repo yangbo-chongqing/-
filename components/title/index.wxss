@@ -1,0 +1,32 @@
+
+.find-page-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40rpx;
+}
+.find-page-title-text{
+  font-size: 35rpx;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.find-page-title-sel{
+  display: flex;
+  font-size: 32rpx;
+  align-items: center;
+}
+.find-page-title-type{
+  display: flex;
+  color: #ea7152;
+  align-items: center;
+}
+.find-page-title-more{
+  display: flex;
+  color: #999999;
+  padding: 5rpx 0;
+}
+.find-page-title-sel-img{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}

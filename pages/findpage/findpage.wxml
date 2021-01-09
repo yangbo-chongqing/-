@@ -1,0 +1,23 @@
+<!--pages/findpage/findpage.wxml-->
+<view>
+	<!-- <nav-bar navbar-data='{{nvabarData}}'></nav-bar> -->
+	<!-- <view class="find-page" style="margin-top:{{height}}px"> -->
+	<view class="find-page">
+		<van-search value="{{ value }}" shape="round" background="#ea7152" placeholder="输入你想了解的文物" use-action-slot bind:change="onChange" bind:search="onSearch">
+		</van-search>
+	</view>
+	<view class="find-type">
+		<view wx:for="{{findData.type_list}}" wx:key="index" class="find-type-list" bindtap="openJumpData" data-id="{{item.id}}">
+			<view class="find-type-img">
+				<image class="find-type-imgs" mode="aspectFill" src="{{item.icon}}"></image>
+			</view>
+			<view class="find-type-text">{{item.type_name}}</view>
+		</view>
+	</view>
+	<view wx:if="{{item.list.length>0}}" wx:for="{{findData.list}}" wx:key="*this">
+		<pro-title title-obj="{{item.title}}"></pro-title>
+		<pro-swiper swiper-obj="{{item}}"></pro-swiper>
+	</view>
+	<pro-title title-obj="{{titleObj1}}" bindeventclick="getFindList"></pro-title>
+	<pro-list list-obj="{{findData.recommend}}"></pro-list>
+</view>

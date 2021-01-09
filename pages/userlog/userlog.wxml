@@ -1,0 +1,48 @@
+<!--pages/userlog/userlog.wxml-->
+<view>
+  <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+  <view style="padding-top:{{height*2+20}}px">
+
+    <view class='weui-cell-third'>
+      <view class="page__title">
+        <view class="page-user-body">
+          <view>
+            <image mode="aspectFill" src="{{userinfo.avatar}}"></image>
+          </view>
+          <view class="page-user-info">
+            <view>用户ID：{{userinfo.user_id}}</view>
+            <view>用户名：{{userinfo.nickname}}</view>
+            <view>手机：{{userinfo.mobile}}</view>
+
+          </view>
+
+        </view>
+        <view>
+        </view>
+      </view>
+      <view class="wecentBor">
+        <block wx:for="{{axis}}" wx:key="*this">
+          <view class='weui-cell-list'>
+            <view class="weui-cell-title">{{item.day}}</view>
+            <view class='weui-cell-line' wx:if="{{item.list.length>0}}">
+              <view class='weui-cell-circle'>
+                <view></view>
+              </view>
+              <view class="weui-cell-citem" wx:for="{{item.list}}" wx:for-item='citem' wx:key="id">
+                <view class='weui-cell-time floarLeft'>{{citem.time}}</view>
+                <view class='weui-cell-event floarLeft'>{{citem.remarks}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+
+
+
+
+
+
+  </view>
+</view>

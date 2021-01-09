@@ -1,0 +1,33 @@
+    <!-- 获取微信信息授权  -->
+    <view wx:if="{{!is_get_phone}}" class="{{is_authorization == false?'hidden':'maskbg_sq'}}" catchtouchmove="ture">
+    	<view class='getphonebox_sq'>
+        <view class="logo">
+          <image src="/images/icons/logo.png"></image>
+        </view>
+    		<view class='hqsjh'>获取微信头像和昵称</view>
+    		<view class='center_text_sq'>
+    			<text class='askinfo_sq'>为了提供更好的服务</text>
+    			<text class='askinfo_sq'>申请获取您的微信授权</text>
+    			<image src='/images/icons/login.jpg'></image>
+    			<button class='ask_btn_sq' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">
+    				好的
+    			</button>
+    			<button class='ask_btn_sq' bindtap="back" style="margin-top: 20rpx;">
+    				谢谢,不用了
+    			</button>
+    		</view>
+    	</view>
+    </view>
+    <view wx:if="{{is_get_phone}}" class="maskbg" catchtouchmove="ture">
+    	<view class='getphonebox'>
+    		<view class='hqsjh'>获取手机号</view>
+    		<view class='center_text'>
+    			<view class='img1box'>
+    				<image class='img1' src='{{userInfo.avatarUrl}}'></image>
+    			</view>
+    			<text class='askinfo'>申请获取您微信绑定的手机号</text>
+    			<button class='ask_btn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+    		</view>
+    	</view>
+    </view>
+    <!-- <button open-type="openSetting" type="primary">去设置页开启授权</button> -->

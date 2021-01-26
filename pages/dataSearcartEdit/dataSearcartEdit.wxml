@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container">
+	<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+	<view class='data-page' style="padding-top:{{height*2+20}}px">
+		<van-search value="{{ keyword }}" shape="round" background="#ffffff" placeholder="输入搜索词条" use-action-slot
+			bind:change="onChange" bind:search="onSearch">
+		</van-search>
+		<view class="add-entry" bindtap="openEditUrl" data-id=""><van-icon color="#5387fd" name="plus" />词条</view>
+	</view>
+	<!-- <view class='data-page'> -->
+	<view class="scroll-box" style="top:{{height*2+56}}px">
+		<scroll-view class="scroll-view" wx:if="{{datalist.length>0}}" scroll-y="true" bindscrolltolower="scrollgetdata">
+			<view class="home-you-sel">
+				<view class="home-you-sel-item" wx:for="{{datalist}}" wx:key="*this">
+					<view class="home-you-img">
+						{{item.name}}
+					</view>
+					<view class="home-you-body">
+						<view class="home-you-title" bindtap="opencode" data-id="{{item.id}}"><image src="/images/icons/cartcode.png"></image></view>
+						<view class="home-you-text"  bindtap="openEditUrl" data-id="{{item.id}}">编辑</view>
+					</view>
+
+				</view>
+			</view>
+			<view class="nomore" wx:if="!pageFlag">没有更多~</view>
+			<!-- <view class="scroll-view-item" wx:for="{{datalist}}" bindtap="openJump" data-id="{{item.id}}">
+			<view class="scroll-view-media">
+				<image mode="aspectFill" src="{{item.image}}"></image>
+			</view>
+			<view class="find-tj-text">
+					<view class="scroll-view-title">{{item.logo}}</view>
+					<view class="find-tj-midas">{{item.introduction}}</view>
+				</view>
+		</view> -->
+		</scroll-view>
+	</view>
+
+</view>

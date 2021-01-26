@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "nav-bar": "/components/navbar/index",
+    "pro-swiper": "/components/proswiper/index",
+    "van-icon": "@vant/weapp/icon/index"
+  }
+}

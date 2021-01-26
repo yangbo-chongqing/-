@@ -1,0 +1,14 @@
+<view class="find-page-title">
+	<view class="find-page-title-text">
+		{{titleObj.title}}
+	</view>
+	<view class="find-page-title-sel" wx:if="{{titleObj.ishflag}}">
+	  <view class="find-page-title-type" wx:if="{{titleObj.type=='hyh'}}" bindtap="clickhyh">
+			<image class="find-page-title-sel-img" src="/images/icons/qiehuan-icon.png"></image>
+			换一换
+		</view>
+		<view class="find-page-title-more" wx:if="{{titleObj.type=='more'}}" bindtap="openJump">
+			<view>更多</view><van-icon name="arrow" />
+		</view>
+	</view>
+</view>

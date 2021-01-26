@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class="container">
+	<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+	<view class='data-page' style="padding-top:{{height*2+20}}px">
+		<van-search value="{{ keyword }}" shape="round" background="#ffffff" placeholder="输入你想了解的..." use-action-slot
+			bind:change="onChange" bind:search="onSearch">
+		</van-search>
+	</view>
+	<!-- <view class='data-page'> -->
+	<view class="scroll-box" style="top:{{height*2+56}}px">
+		<scroll-view class="scroll-view" wx:if="{{datalist.length>0}}" scroll-y="true" bindscrolltolower="scrollgetdata">
+			<view class="home-you-sel">
+				<view class="home-you-sel-item" wx:for="{{datalist}}" wx:key="id" bindtap="openUrl" data-id="{{item.id}}">
+					<view class="home-you-img">
+						<image mode="widthFix" src="{{item.logo}}"></image>
+					</view>
+					<view class="home-you-body">
+						<view class="home-you-title">{{item.muse_name}}</view>
+						<view class="home-you-text">{{item.address}}</view>
+					</view>
+
+				</view>
+			</view>
+			<view class="nomore" wx:if="!pageFlag">没有更多~</view>
+			<!-- <view class="scroll-view-item" wx:for="{{datalist}}" bindtap="openJump" data-id="{{item.id}}">
+			<view class="scroll-view-media">
+				<image mode="aspectFill" src="{{item.image}}"></image>
+			</view>
+			<view class="find-tj-text">
+					<view class="scroll-view-title">{{item.logo}}</view>
+					<view class="find-tj-midas">{{item.introduction}}</view>
+				</view>
+		</view> -->
+		</scroll-view>
+		<view wx:if="{{datalist.length == 0}}" class="no-data">暂无数据</view>
+
+
+	</view>
+
+</view>

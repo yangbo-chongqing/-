@@ -1,0 +1,43 @@
+.find-swiper{
+  width: 100%;
+  height: 250rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+.find-swiper swiper-item{
+  width: 185rpx !important;
+  padding-right: 20rpx;
+  box-sizing: border-box;
+}
+.find-swiper .swiper-item image{
+  width: 147rpx;
+  height: 147rpx;
+  margin: auto;
+}
+.find-swiper .swiper-item .swiper-text{
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  white-space: nowrap;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.find-swiper .logo{
+  width: 167rpx;
+  height: 167rpx;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  display: flex;
+}
+.find-swiper .images{
+  border:none;
+}
+.find-swiper .images image{
+  border-radius: 10px;
+}

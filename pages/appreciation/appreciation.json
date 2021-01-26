@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "nav-bar": "/components/navbar/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "pro-title": "/components/title/index",
+    "pro-swiper": "/components/proswiper/index",
+    "pro-list": "/components/prolist/index"
+  }
+}

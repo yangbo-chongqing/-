@@ -1,0 +1,13 @@
+.DS_Store
+npm-debug.log
+yarn-error.log
+node_modules/
+miniprogram_npm/
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+static/imgs/titleicon5.png

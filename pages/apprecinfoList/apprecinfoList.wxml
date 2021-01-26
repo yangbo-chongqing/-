@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<view class="container">
+	<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+	<view class='data-page' style="margin-top:{{height*2+22}}px">
+		<!-- <view class='data-page'> -->
+		<scroll-view class="scroll-view" wx:if="{{relicsInfo.length>0}}" bindscrolltolower="scrollgetdata" scroll-y="true">
+			<view class="app-info-ta-list">
+				<view class="app-info-ta-item" wx:for="{{relicsInfo}}" wx:key="*this" bindtap="jumpinfo" data-id="{{item.id}}">
+					<view class="app-info-ta-title">
+						<view class="app-info-ta-title-left">
+							<!-- <image mode="widthFix" src="/images/icons/info-jump.png"></image> -->
+							<view class="app-info-jump-item-text">{{item.name}}</view>
+						</view>
+						<view class="app-view-head-muic" wx:if="{{item.voice_url}}">
+							<view class="app-audio-box" catchtap="playAudioList" data-audiourl="{{item.voice_url}}" data-index="{{index}}">
+								<van-icon name="play-circle-o" wx:if="{{item.playFlag}}" size="20" />
+								<van-icon name="pause-circle-o" wx:else size="20" />
+								语言简介
+							</view>
+							<audio src="{{item.voice_url}}" id="myAudio{{index}}" loop></audio>
+						</view>
+					</view>
+					<view class="app-info-ta-body">
+						<view class="app-info-ta-body-info">
+							<view class="app-info-ta-body-text">{{item.introduction}}</view>
+							<view class="app-info-ta-body-tips">
+								<view>{{item.create_time}}</view>
+								<!-- <view>阅读 333</view><view>
+							 <van-icon name="good-job-o" />20</view> -->
+							</view>
+						</view>
+						<view class="app-info-ta-body-image">
+							<image mode="aspectFill" src="{{item.image}}"></image>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="nomore" wx:if="!pageFlag">没有更多~</view>
+		</scroll-view>
+		<view wx:if="{{relicsInfo.length==0}}" class="no-data">暂无数据</view>
+	</view>
+</view>

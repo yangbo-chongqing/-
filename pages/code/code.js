@@ -13,7 +13,7 @@ Page({
     token:'',
     user: '',
     phone:'',
-    text:'将使用微信登录寻声地图',
+    text:'将使用微信登录寻声扫码',
     login_content:'登录',
     cancel_content:'取消登录',
     authorized_login:'授权登录',
@@ -123,7 +123,7 @@ Page({
       console.log(res)
       if(res.message == '获取信息成功'){
         t.setData({
-          text: '将使用微信登录寻声地图',
+          text: '将使用微信登录寻声扫码',
           login_content : '登录',
           authorized_login:'授权登录',
           cancel_content :'取消登录',

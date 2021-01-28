@@ -7,7 +7,7 @@ Page({
     // 组件所需的参数
     nvabarData: {
       showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
-      title: '寻声地图', //导航栏 中间的标题
+      title: '寻声扫码', //导航栏 中间的标题
       bgColor:'#ffffff',
       isHomeFlag:true,
       fontColor:'#000000',

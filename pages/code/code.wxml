@@ -2,7 +2,7 @@
 
 <view class="content">
   <view class="title">
-    <text>寻声地图</text>
+    <text>寻声扫码</text>
   </view>
   <view class="content_iconfont">
     <text class="iconfont icon-shouji"></text>
